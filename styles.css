@@ -1,0 +1,48 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .navigation {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn.disabled {
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none;
+  }
+  
+  .btn.green {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .btn.purple {
+    background-color: #800080;
+    color: white;
+  }
+  
