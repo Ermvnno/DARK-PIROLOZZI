@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="form-container">
+  <div class="video-container">
+    <video id="second-video" autoplay controls>
+      <source src="resources/secondo_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="navigation">
+    <button id="contattami-btn" class="btn purple">Contattami</button>
+  </div>
+  <div class="form-container hidden" id="contact-form-container">
     <h2>Lascia i tuoi dati per essere ricontattato</h2>
     <form id="contact-form">
       <label for="email">Email:</label>
@@ -20,12 +29,6 @@
     </form>
     <p id="success-message" class="hidden">Grazie! Ti ricontatteremo presto.</p>
   </div>
-
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('success-message').classList.remove('hidden');
-    });
-  </script>
+  <script src="contattami.js"></script>
 </body>
 </html>
