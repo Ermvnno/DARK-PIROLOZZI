@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const contattamiBtn = document.getElementById('contattami-btn');
     const contactFormContainer = document.getElementById('contact-form-container');
   
-    // Abilita autoplay su alcuni browser
-    primoVideo.muted = true;
-    primoVideo.play();
+    // Abilita autoplay con audio
+    primoVideo.muted = false;
+    primoVideo.play().catch(error => {
+      console.warn("Autoplay bloccato, richiedendo interazione utente.");
+    });
   
     // Timer per pulsante "Avanti"
     primoVideo.addEventListener("timeupdate", function() {
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     avantiBtn.addEventListener("click", function() {
       document.querySelector(".video-container").classList.add("hidden");
       secondoVideoContainer.classList.remove("hidden");
+      secondoVideo.play(); // Fa partire automaticamente il secondo video
     });
   
     // Mostra il pulsante "Contattami" dopo il secondo video
