@@ -1,9 +1,14 @@
-body {
-    font-family: Arial, sans-serif;
+:root {
+    color-scheme: light dark; /* Segue il tema del browser */
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #9df9ef; /* Blue Green */
+    background-color: var(--bg-color, #fff);
+    color: var(--text-color, #000);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,18 +37,16 @@ body {
   p {
     margin: 20px 0;
     font-size: 18px;
-    color: #edf756; /* Dusty White */
   }
   
-  /* Pulsante "Avanti" */
   .btn {
     padding: 15px 25px;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    background-color: #ffa8b6; /* Pink Sand */
+    background-color: gray;
     color: white;
   }
   
@@ -54,44 +57,47 @@ body {
   }
   
   .btn.green {
-    background-color: #51e2f5; /* Bright Blue */
+    background-color: #4caf50;
     transform: scale(1.1);
   }
   
-  /* Form contattami */
-  .form-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    background-color: white;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* Pulsante Contattami con animazione */
+  /* Pulsante Contattami */
   #contattami-btn {
     background-color: #6a0dad;
     color: white;
     transition: opacity 1s ease, transform 0.5s ease-in-out;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
+    position: relative;
   }
   
   #contattami-btn.show {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  /* Form stilizzata */
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+    background-color: var(--form-bg, #f9f9f9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .hidden {
+    display: none;
   }
   
