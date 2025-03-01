@@ -6,19 +6,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const contattamiBtn = document.getElementById('contattami-btn');
     const contactFormContainer = document.getElementById('contact-form-container');
   
-    // Tenta l'autoplay con audio
-    primoVideo.muted = false;
+    // Soluzione per l'autoplay con audio
+    // Nota: questa è una soluzione che tenta di aggirare le restrizioni del browser
+    // utilizzando l'interazione dell'utente con la pagina
+    
+    // Imposta una funzione che tenta di attivare l'audio quando l'utente interagisce con la pagina
+    function enableAudio() {
+        primoVideo.muted = false;
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+        document.removeEventListener('keydown', enableAudio);
+    }
+    
+    // Aggiungi listener per vari tipi di interazione utente
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('touchstart', enableAudio);
+    document.addEventListener('keydown', enableAudio);
+    
+    // Avvia il video muto (questo dovrebbe funzionare)
+    primoVideo.muted = true;
     primoVideo.play().catch(error => {
-      console.warn("Autoplay con audio bloccato, provo in modalità muta");
-      primoVideo.muted = true;
-      primoVideo.play().catch(err => {
-        console.error("Anche l'autoplay muto è stato bloccato:", err);
-      });
-    });
-  
-    // Se l'utente tocca il video, attiva l'audio (rimane come fallback)
-    primoVideo.addEventListener("click", function() {
-      primoVideo.muted = false;
+      console.warn("Autoplay bloccato:", error);
     });
   
     // Timer per pulsante "Avanti"
@@ -34,9 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
       avantiBtn.innerText = "Avanti";
     });
   
+    // Corretto il problema del pulsante Avanti che non scompare
     avantiBtn.addEventListener("click", function() {
       document.querySelector(".video-container").classList.add("hidden");
-      avantiBtn.classList.add("hidden"); // Nasconde il pulsante "Avanti"
+      // Aggiungiamo anche l'occultamento esplicito del pulsante
+      avantiBtn.style.display = "none"; // Utilizziamo style.display invece della classe
       secondoVideoContainer.classList.remove("hidden");
       secondoVideo.muted = false;
       secondoVideo.play();
@@ -51,54 +61,4 @@ document.addEventListener("DOMContentLoaded", function() {
     contattamiBtn.addEventListener("click", function() {
       contactFormContainer.classList.remove("hidden");
     });
-
-    // Validazione form
-    if (document.getElementById('contact-form')) {
-      const contactForm = document.getElementById('contact-form');
-      const emailInput = document.getElementById('email');
-      const phoneInput = document.getElementById('phone');
-      const successMessage = document.getElementById('success-message');
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Reset dei messaggi di errore precedenti
-        document.querySelectorAll('.error-message').forEach(el => el.remove());
-        
-        let isValid = true;
-        
-        // Validazione email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
-          showError(emailInput, 'Inserisci un indirizzo email valido');
-          isValid = false;
-        }
-        
-        // Validazione telefono (formato italiano)
-        const phoneRegex = /^(\+39)?[0-9]{9,10}$/;
-        if (!phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
-          showError(phoneInput, 'Inserisci un numero di telefono valido');
-          isValid = false;
-        }
-        
-        if (isValid) {
-          // Form valido, mostra messaggio di successo
-          contactForm.classList.add('hidden');
-          successMessage.classList.remove('hidden');
-          // Qui potresti anche inviare i dati al server
-        }
-      });
-      
-      function showError(input, message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.innerText = message;
-        errorDiv.style.color = 'red';
-        errorDiv.style.fontSize = '14px';
-        errorDiv.style.marginTop = '-8px';
-        errorDiv.style.marginBottom = '10px';
-        input.parentNode.insertBefore(errorDiv, input.nextSibling);
-        input.style.borderColor = 'red';
-      }
-    }
   });

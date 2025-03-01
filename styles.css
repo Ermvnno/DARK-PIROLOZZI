@@ -6,8 +6,7 @@
     --btn-active: #28a745;
     --btn-contact: #6a0dad;
     --form-bg: #f8f8f8;
-    --input-border: #ccc;
-    --error-color: #dc3545;
+    --error-color: #ff3333;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -18,8 +17,6 @@
       --btn-active: #2ecc71;
       --btn-contact: #9b59b6;
       --form-bg: #222;
-      --input-border: #444;
-      --error-color: #ff6b6b;
     }
   }
   
@@ -55,7 +52,8 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     background-color: var(--btn-disabled);
     color: white;
-    margin: 15px 0;
+    margin: 15px auto; /* Centrato */
+    display: block; /* Assicura che sia un blocco */
   }
   
   .btn.disabled {
@@ -84,8 +82,8 @@
   /* Form migliorata */
   .form-container {
     max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 25px;
     border: 1px solid #ddd;
     border-radius: 12px;
     background-color: var(--form-bg);
@@ -94,42 +92,39 @@
   
   .form-container h2 {
     margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--text-color);
+    margin-bottom: 25px;
+    text-align: center;
   }
   
-  .form-container form {
+  /* Stile migliorato per il form */
+  #contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: 100%; /* Larghezza completa */
   }
   
-  .form-container label {
-    align-self: flex-start;
-    margin-top: 10px;
+  #contact-form label {
     margin-bottom: 5px;
-    font-weight: bold;
+    text-align: left;
   }
   
-  input {
-    width: 90%;
+  #contact-form input {
+    width: 100%; /* Larghezza completa all'interno del form */
+    box-sizing: border-box; /* Include padding e bordo nella larghezza */
     padding: 12px;
-    margin: 8px 0;
-    border: 1px solid var(--input-border);
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
   }
   
-  .form-container button {
-    margin-top: 20px;
-    width: auto;
-    min-width: 120px;
+  #contact-form button {
+    width: 100%; /* Larghezza completa */
+    margin-top: 10px;
   }
   
   #success-message {
+    text-align: center;
     color: var(--btn-active);
     font-weight: bold;
     font-size: 18px;
@@ -138,11 +133,10 @@
   
   .error-message {
     color: var(--error-color);
-    font-size: 14px;
-    margin-top: -5px;
-    margin-bottom: 10px;
-    align-self: flex-start;
-    margin-left: 5%;
+    text-align: left;
+    font-size: 12px;
+    margin-top: -15px;
+    margin-bottom: 15px;
   }
   
   .hidden {
