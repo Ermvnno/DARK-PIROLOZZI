@@ -3,11 +3,20 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #9df9ef; /* Blue Green */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   
   .video-container {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
     margin: auto;
   }
@@ -20,9 +29,10 @@ body {
   p {
     margin: 20px 0;
     font-size: 18px;
+    color: #edf756; /* Dusty White */
   }
   
-  /* Pulsante \"Avanti\" con animazione */
+  /* Pulsante \"Avanti\" */
   .btn {
     padding: 15px 25px;
     font-size: 18px;
@@ -30,6 +40,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: #ffa8b6; /* Pink Sand */
+    color: white;
   }
   
   .btn.disabled {
@@ -39,23 +51,8 @@ body {
   }
   
   .btn.green {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #51e2f5; /* Bright Blue */
     transform: scale(1.1);
-  }
-  
-  /* Pulsante viola con transizione fluida */
-  .btn.purple {
-    background-color: #800080;
-    color: white;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-  }
-  
-  .btn.purple.show {
-    transform: translateY(0);
-    opacity: 1;
   }
   
   /* Form contattami */
@@ -66,6 +63,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
+    background-color: white;
   }
   
   input {

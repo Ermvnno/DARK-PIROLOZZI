@@ -8,6 +8,10 @@ video.addEventListener('timeupdate', function() {
   }
 });
 
+video.addEventListener('play', function() {
+  video.controls = false; // Disabilita i controlli quando il video parte
+});
+
 avantiBtn.addEventListener('click', function() {
   window.location.href = 'contattami.html';
 });

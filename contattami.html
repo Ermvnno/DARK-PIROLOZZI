@@ -7,27 +7,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="video-container">
-    <video id="second-video" autoplay controls>
-      <source src="resources/secondo_video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div class="navigation">
-    <button id="contattami-btn" class="btn purple">Contattami</button>
-  </div>
-  <div class="form-container hidden" id="contact-form-container">
-    <h2>Lascia i tuoi dati per essere ricontattato</h2>
-    <form id="contact-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+  <div class="container">
+    <div class="video-container">
+      <video id="second-video" controls>
+        <source src="resources/secondo_video.mp4" type="video/mp4">
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
+    <div class="navigation">
+      <button id="contattami-btn" class="btn">Contattami</button>
+    </div>
+    <div class="form-container hidden" id="contact-form-container">
+      <h2>Lascia i tuoi dati per essere ricontattato</h2>
+      <form id="contact-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-      <label for="phone">Numero di telefono:</label>
-      <input type="tel" id="phone" name="phone" required>
+        <label for="phone">Numero di telefono:</label>
+        <input type="tel" id="phone" name="phone" required>
 
-      <button type="submit" class="btn purple">Invia</button>
-    </form>
-    <p id="success-message" class="hidden">Grazie! Ti ricontatteremo presto.</p>
+        <button type="submit" class="btn">Invia</button>
+      </form>
+      <p id="success-message" class="hidden">Grazie! Ti ricontatteremo presto.</p>
+    </div>
   </div>
   <script src="contattami.js"></script>
 </body>
