@@ -1,42 +1,45 @@
 :root {
-    color-scheme: light dark; /* Segue il tema del browser */
+    color-scheme: light dark; /* Usa il tema del browser */
+    --bg-color: white;
+    --text-color: black;
+    --btn-disabled: #555;
+    --btn-active: #4caf50;
+    --btn-contact: #6a0dad;
+    --form-bg: #f0f0f0;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --btn-disabled: #444;
+      --btn-active: #2ecc71;
+      --btn-contact: #8e44ad;
+      --form-bg: #222;
+    }
   }
   
   body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
     text-align: center;
-    background-color: var(--bg-color, #fff);
-    color: var(--text-color, #000);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 800px;
+    height: 100vh;
+    margin: 0;
   }
   
-  .video-container {
-    position: relative;
-    width: 100%;
+  .container {
+    width: 90%;
+    max-width: 800px;
   }
   
   video {
     width: 100%;
     border-radius: 10px;
-  }
-  
-  p {
-    margin: 20px 0;
-    font-size: 18px;
   }
   
   .btn {
@@ -46,25 +49,22 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    background-color: gray;
+    background-color: var(--btn-disabled);
     color: white;
   }
   
   .btn.disabled {
-    background-color: #ccc;
-    color: #666;
     pointer-events: none;
   }
   
   .btn.green {
-    background-color: #4caf50;
+    background-color: var(--btn-active);
     transform: scale(1.1);
   }
   
   /* Pulsante Contattami */
   #contattami-btn {
-    background-color: #6a0dad;
-    color: white;
+    background-color: var(--btn-contact);
     transition: opacity 1s ease, transform 0.5s ease-in-out;
     opacity: 0;
     transform: translateY(50px);
@@ -83,8 +83,7 @@
     padding: 25px;
     border: 1px solid #ddd;
     border-radius: 12px;
-    text-align: center;
-    background-color: var(--form-bg, #f9f9f9);
+    background-color: var(--form-bg);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
