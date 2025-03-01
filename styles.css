@@ -6,6 +6,8 @@
     --btn-active: #28a745;
     --btn-contact: #6a0dad;
     --form-bg: #f8f8f8;
+    --input-border: #ccc;
+    --error-color: #dc3545;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -16,6 +18,8 @@
       --btn-active: #2ecc71;
       --btn-contact: #9b59b6;
       --form-bg: #222;
+      --input-border: #444;
+      --error-color: #ff6b6b;
     }
   }
   
@@ -51,6 +55,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     background-color: var(--btn-disabled);
     color: white;
+    margin: 15px 0;
   }
   
   .btn.disabled {
@@ -87,16 +92,59 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  input {
+  .form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+  }
+  
+  .form-container label {
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 90%;
     padding: 12px;
-    margin: 12px 0;
-    border: 1px solid #ccc;
+    margin: 8px 0;
+    border: 1px solid var(--input-border);
     border-radius: 8px;
     font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .form-container button {
+    margin-top: 20px;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  #success-message {
+    color: var(--btn-active);
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    margin-left: 5%;
   }
   
   .hidden {
     display: none;
   }
-  
