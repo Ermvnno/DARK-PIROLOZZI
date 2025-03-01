@@ -1,160 +1,144 @@
-/* Definizione delle variabili CSS per facilitare il cambio dei colori e il supporto del tema chiaro/scuro */
 :root {
-    color-scheme: light dark; /* Segue il tema del browser (chiaro/scuro) */
-    --bg-color: white; /* Colore di sfondo predefinito */
-    --text-color: black; /* Colore del testo predefinito */
-    --btn-disabled: #666; /* Colore del pulsante disabilitato */
-    --btn-active: #28a745; /* Colore del pulsante attivo (verde) */
-    --btn-contact: #6a0dad; /* Colore del pulsante "Contattami" (viola) */
-    --form-bg: #f8f8f8; /* Colore di sfondo del form */
-    --error-color: #ff3333; /* Colore dei messaggi di errore */
+    color-scheme: light dark; /* Segue il tema del browser */
+    --bg-color: white;
+    --text-color: black;
+    --btn-disabled: #666;
+    --btn-active: #28a745;
+    --btn-contact: #6a0dad;
+    --form-bg: #f8f8f8;
+    --error-color: #ff3333;
   }
   
-  /* Impostazioni per il tema scuro, attivato quando l'utente ha il tema scuro nel browser */
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg-color: #121212; /* Sfondo scuro */
-      --text-color: #ffffff; /* Testo chiaro */
-      --btn-disabled: #444; /* Pulsante disabilitato più scuro */
-      --btn-active: #2ecc71; /* Verde più vivido per contrasto */
-      --btn-contact: #9b59b6; /* Viola più vivido per contrasto */
-      --form-bg: #222; /* Sfondo del form più scuro */
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --btn-disabled: #444;
+      --btn-active: #2ecc71;
+      --btn-contact: #9b59b6;
+      --form-bg: #222;
     }
   }
   
-  /* Stile base per il corpo della pagina */
   body {
-    background-color: var(--bg-color); /* Sfondo usando la variabile CSS */
-    color: var(--text-color); /* Colore del testo usando la variabile CSS */
-    font-family: 'Inter', sans-serif; /* Font principale */
-    text-align: center; /* Allineamento del testo centrato */
-    margin: 0; /* Rimuove il margine predefinito */
-    display: flex; /* Imposta il display flex */
-    flex-direction: column; /* Organizza gli elementi in colonna */
-    justify-content: center; /* Centra verticalmente il contenuto */
-    align-items: center; /* Centra orizzontalmente il contenuto */
-    height: 100vh; /* Altezza pari all'intera finestra */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   
-  /* Contenitore principale che limita la larghezza massima del contenuto */
   .container {
-    width: 90%; /* Usa il 90% della larghezza disponibile */
-    max-width: 800px; /* Ma non superare gli 800px */
+    width: 90%;
+    max-width: 800px;
   }
   
-  /* Stile per tutti i video */
   video {
-    width: 100%; /* Occupa tutta la larghezza del contenitore */
-    border-radius: 10px; /* Bordi arrotondati */
+    width: 100%;
+    border-radius: 10px;
   }
   
-  /* Stile base per i pulsanti */
   .btn {
-    padding: 15px 25px; /* Spaziatura interna */
-    font-size: 18px; /* Dimensione del testo */
-    border: none; /* Nessun bordo */
-    border-radius: 8px; /* Bordi arrotondati */
-    cursor: pointer; /* Cambia il cursore al passaggio */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transizione fluida per cambio colore e dimensione */
-    background-color: var(--btn-disabled); /* Colore di sfondo predefinito */
-    color: white; /* Colore del testo */
-    margin: 15px auto; /* Margine esterno con auto per centrare */
-    display: block; /* Imposta il display come blocco */
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: var(--btn-disabled);
+    color: white;
+    margin: 15px auto; /* Centrato */
+    display: block; /* Assicura che sia un blocco */
   }
   
-  /* Stile per pulsanti disabilitati */
   .btn.disabled {
-    pointer-events: none; /* Disabilita gli eventi del mouse */
+    pointer-events: none;
   }
   
-  /* Stile per pulsanti attivi (verdi) */
   .btn.green {
-    background-color: var(--btn-active); /* Cambia colore in verde */
-    transform: scale(1.1); /* Ingrandisce leggermente il pulsante */
+    background-color: var(--btn-active);
+    transform: scale(1.1);
   }
   
-  /* Stile specifico per il pulsante "Contattami" */
+  /* Pulsante Contattami */
   #contattami-btn {
-    background-color: var(--btn-contact); /* Colore di sfondo viola */
-    transition: opacity 0.8s ease, transform 0.5s ease-in-out; /* Transizione per l'animazione */
-    opacity: 0; /* Inizialmente trasparente */
-    transform: translateY(50px); /* Inizialmente spostato verso il basso */
-    position: relative; /* Posizionamento relativo */
+    background-color: var(--btn-contact);
+    transition: opacity 0.8s ease, transform 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
   }
   
-  /* Stile quando il pulsante "Contattami" deve essere mostrato */
   #contattami-btn.show {
-    opacity: 1; /* Diventa completamente visibile */
-    transform: translateY(0); /* Torna nella posizione originale */
+    opacity: 1;
+    transform: translateY(0);
   }
   
-  /* Stile per il contenitore del form */
+  /* Form migliorata */
   .form-container {
-    max-width: 400px; /* Larghezza massima */
-    margin: 30px auto; /* Margine esterno con auto per centrare */
-    padding: 25px; /* Spaziatura interna */
-    border: 1px solid #ddd; /* Bordo sottile */
-    border-radius: 12px; /* Bordi molto arrotondati */
-    background-color: var(--form-bg); /* Colore di sfondo */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: var(--form-bg);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Stile per i titoli all'interno del form */
   .form-container h2 {
-    margin-top: 0; /* Rimuove il margine superiore */
-    margin-bottom: 25px; /* Aggiunge margine inferiore */
-    text-align: center; /* Centra il testo */
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
   }
   
-  /* Stile per il form di contatto */
+  /* Stile migliorato per il form */
   #contact-form {
-    display: flex; /* Imposta display flex */
-    flex-direction: column; /* Organizza gli elementi in colonna */
-    width: 100%; /* Occupa tutta la larghezza disponibile */
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Larghezza completa */
   }
   
-  /* Stile per le etichette nel form */
   #contact-form label {
-    margin-bottom: 5px; /* Spazio sotto l'etichetta */
-    text-align: left; /* Allinea il testo a sinistra */
+    margin-bottom: 5px;
+    text-align: left;
   }
   
-  /* Stile per i campi di input nel form */
   #contact-form input {
-    width: 100%; /* Larghezza 100% */
+    width: 100%; /* Larghezza completa all'interno del form */
     box-sizing: border-box; /* Include padding e bordo nella larghezza */
-    padding: 12px; /* Spaziatura interna */
-    margin-bottom: 20px; /* Margine inferiore */
-    border: 1px solid #ccc; /* Bordo sottile */
-    border-radius: 8px; /* Bordi arrotondati */
-    font-size: 16px; /* Dimensione del testo */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
   }
   
-  /* Stile per il pulsante nel form */
   #contact-form button {
-    width: 100%; /* Larghezza 100% */
-    margin-top: 10px; /* Margine superiore */
+    width: 100%; /* Larghezza completa */
+    margin-top: 10px;
   }
   
-  /* Stile per il messaggio di successo */
   #success-message {
-    text-align: center; /* Allinea il testo al centro */
-    color: var(--btn-active); /* Colore del testo (verde) */
-    font-weight: bold; /* Testo in grassetto */
-    font-size: 18px; /* Dimensione del testo */
-    margin-top: 20px; /* Margine superiore */
+    text-align: center;
+    color: var(--btn-active);
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
   }
   
-  /* Stile per i messaggi di errore */
   .error-message {
-    color: var(--error-color); /* Colore del testo (rosso) */
-    text-align: left; /* Allinea il testo a sinistra */
-    font-size: 12px; /* Dimensione del testo piccola */
-    margin-top: -15px; /* Margine negativo per avvicinarlo al campo */
-    margin-bottom: 15px; /* Margine inferiore */
+    color: var(--error-color);
+    text-align: left;
+    font-size: 12px;
+    margin-top: -15px;
+    margin-bottom: 15px;
   }
   
-  /* Classe utility per nascondere elementi */
   .hidden {
-    display: none; /* Nasconde completamente l'elemento */
+    display: none;
   }

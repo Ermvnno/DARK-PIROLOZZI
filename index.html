@@ -1,40 +1,40 @@
-<!DOCTYPE html> <!-- Dichiarazione del tipo di documento HTML5 -->
-<html lang="it"> <!-- Elemento radice con linguaggio italiano specificato -->
+<!DOCTYPE html>
+<html lang="it">
 <head>
-  <meta charset="UTF-8"> <!-- Definisce la codifica dei caratteri -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ottimizzazione per dispositivi mobili -->
-  <title>Portfolio</title> <!-- Titolo della pagina che appare nella scheda del browser -->
-  <link rel="stylesheet" href="styles.css"> <!-- Collegamento al file CSS esterno -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container"> <!-- Contenitore principale che limita la larghezza del contenuto -->
-  <div class="video-container"> <!-- Contenitore del primo video -->
-    <video id="primo-video" autoplay playsinline> <!-- Elemento video con autoplay e supporto per iOS -->
-      <source src="resources/primo_video.mp4" type="video/mp4"> <!-- Fonte del video in formato MP4 -->
-      Il tuo browser non supporta i video. <!-- Messaggio alternativo se il browser non supporta i video -->
+<div class="container">
+  <div class="video-container">
+    <video id="primo-video" autoplay playsinline>
+      <source src="resources/primo_video.mp4" type="video/mp4">
+      Il tuo browser non supporta i video.
     </video>
   </div>
 
-  <button id="avanti-btn" class="btn disabled">Avanti</button> <!-- Pulsante "Avanti" inizialmente disabilitato -->
+  <button id="avanti-btn" class="btn disabled">Avanti</button>
 
-  <div id="secondo-video-container" class="hidden"> <!-- Contenitore del secondo video (inizialmente nascosto) -->
-    <video id="secondo-video" controls> <!-- Elemento video con controlli nativi -->
-      <source src="resources/secondo_video.mp4" type="video/mp4"> <!-- Fonte del video in formato MP4 -->
+  <div id="secondo-video-container" class="hidden">
+    <video id="secondo-video" controls>
+      <source src="resources/secondo_video.mp4" type="video/mp4">
     </video>
-    <button id="contattami-btn" class="btn hidden">Contattami</button> <!-- Pulsante "Contattami" (inizialmente nascosto) -->
+    <button id="contattami-btn" class="btn hidden">Contattami</button>
   </div>
 
-  <div id="contact-form-container" class="form-container hidden"> <!-- Contenitore del form di contatto (inizialmente nascosto) -->
-    <h2>Contattami</h2> <!-- Titolo del form -->
-    <form> <!-- Form per inserimento dati -->
-      <input type="email" placeholder="Email" required> <!-- Campo email obbligatorio -->
-      <input type="tel" placeholder="Numero di telefono" required> <!-- Campo telefono obbligatorio -->
-      <button type="submit" class="btn">Invia</button> <!-- Pulsante di invio form -->
+  <div id="contact-form-container" class="form-container hidden">
+    <h2>Contattami</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Numero di telefono" required>
+      <button type="submit" class="btn">Invia</button>
     </form>
   </div>
 </div>
 
-<script src="script.js"></script> <!-- Collegamento al file JavaScript esterno -->
+<script src="script.js"></script>
 </body>
 </html>

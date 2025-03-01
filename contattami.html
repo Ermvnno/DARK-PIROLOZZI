@@ -1,36 +1,36 @@
-<!DOCTYPE html> <!-- Dichiarazione del tipo di documento HTML5 -->
-<html lang="en"> <!-- Elemento radice con linguaggio inglese specificato -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"> <!-- Definisce la codifica dei caratteri -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ottimizzazione per dispositivi mobili -->
-  <title>Contattami</title> <!-- Titolo della pagina che appare nella scheda del browser -->
-  <link rel="stylesheet" href="styles.css"> <!-- Collegamento al file CSS esterno -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contattami</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container"> <!-- Contenitore principale che limita la larghezza del contenuto -->
-    <div class="video-container"> <!-- Contenitore del video -->
-      <video id="second-video" controls> <!-- Elemento video con controlli nativi -->
-        <source src="resources/secondo_video.mp4" type="video/mp4"> <!-- Fonte del video in formato MP4 -->
-        Il tuo browser non supporta il video. <!-- Messaggio alternativo se il browser non supporta i video -->
+  <div class="container">
+    <div class="video-container">
+      <video id="second-video" controls>
+        <source src="resources/secondo_video.mp4" type="video/mp4">
+        Il tuo browser non supporta il video.
       </video>
     </div>
-    <div class="navigation"> <!-- Sezione per i controlli di navigazione -->
-      <button id="contattami-btn" class="btn hidden">Contattami</button> <!-- Pulsante "Contattami" (inizialmente nascosto) -->
+    <div class="navigation">
+      <button id="contattami-btn" class="btn hidden">Contattami</button>
     </div>
-    <div class="form-container hidden" id="contact-form-container"> <!-- Contenitore del form (inizialmente nascosto) -->
-      <h2>Lascia i tuoi dati per essere ricontattato</h2> <!-- Titolo del form -->
-      <form id="contact-form"> <!-- Form con ID per gestione JavaScript -->
-        <label for="email">Email:</label> <!-- Etichetta per il campo email -->
-        <input type="email" id="email" name="email" required> <!-- Campo email obbligatorio con ID per JavaScript -->
+    <div class="form-container hidden" id="contact-form-container">
+      <h2>Lascia i tuoi dati per essere ricontattato</h2>
+      <form id="contact-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
         
-        <label for="phone">Numero di telefono:</label> <!-- Etichetta per il campo telefono -->
-        <input type="tel" id="phone" name="phone" required> <!-- Campo telefono obbligatorio con ID per JavaScript -->
+        <label for="phone">Numero di telefono:</label>
+        <input type="tel" id="phone" name="phone" required>
         
-        <button type="submit" class="btn">Invia</button> <!-- Pulsante di invio form -->
+        <button type="submit" class="btn">Invia</button>
       </form>
-      <p id="success-message" class="hidden">Grazie! Ti ricontatteremo presto.</p> <!-- Messaggio di successo (inizialmente nascosto) -->
+      <p id="success-message" class="hidden">Grazie! Ti ricontatteremo presto.</p>
     </div>
   </div>
-  <script src="contattami.js"></script> <!-- Collegamento al file JavaScript specifico per questa pagina -->
+  <script src="contattami.js"></script>
 </body>
 </html>
