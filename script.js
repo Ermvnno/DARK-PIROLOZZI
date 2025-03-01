@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const contattamiBtn = document.getElementById('contattami-btn');
     const contactFormContainer = document.getElementById('contact-form-container');
   
-    // Timer sul primo video
+    // Abilita autoplay su alcuni browser
+    primoVideo.muted = true;
+    primoVideo.play();
+  
+    // Timer per pulsante "Avanti"
     primoVideo.addEventListener("timeupdate", function() {
       let remainingTime = Math.ceil(primoVideo.duration - primoVideo.currentTime);
       avantiBtn.innerText = `Avanti (${remainingTime}s)`;
