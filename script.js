@@ -6,10 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const contattamiBtn = document.getElementById('contattami-btn');
     const contactFormContainer = document.getElementById('contact-form-container');
   
-    // Abilita autoplay con audio
-    primoVideo.muted = false;
+    // Assicura che il primo video parta in autoplay ma muto
+    primoVideo.muted = true;
     primoVideo.play().catch(error => {
-      console.warn("Autoplay bloccato, richiedendo interazione utente.");
+      console.warn("Autoplay bloccato, in attesa di interazione utente.");
+    });
+  
+    // Se l'utente tocca il video, attiva l'audio
+    primoVideo.addEventListener("click", function() {
+      primoVideo.muted = false;
     });
   
     // Timer per pulsante "Avanti"
@@ -28,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     avantiBtn.addEventListener("click", function() {
       document.querySelector(".video-container").classList.add("hidden");
       secondoVideoContainer.classList.remove("hidden");
+      secondoVideo.muted = false;  // Assicura che il secondo video abbia l’audio attivo
       secondoVideo.play(); // Fa partire automaticamente il secondo video
     });
   
