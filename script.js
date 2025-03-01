@@ -1,64 +1,66 @@
+// Attende che il DOM sia completamente caricato prima di eseguire il codice
 document.addEventListener("DOMContentLoaded", function() {
-    const primoVideo = document.getElementById('primo-video');
-    const avantiBtn = document.getElementById('avanti-btn');
-    const secondoVideoContainer = document.getElementById('secondo-video-container');
-    const secondoVideo = document.getElementById('secondo-video');
-    const contattamiBtn = document.getElementById('contattami-btn');
-    const contactFormContainer = document.getElementById('contact-form-container');
+    // Ottiene riferimenti agli elementi DOM necessari
+    const primoVideo = document.getElementById('primo-video'); // Il primo video
+    const avantiBtn = document.getElementById('avanti-btn'); // Pulsante "Avanti"
+    const secondoVideoContainer = document.getElementById('secondo-video-container'); // Contenitore del secondo video
+    const secondoVideo = document.getElementById('secondo-video'); // Il secondo video
+    const contattamiBtn = document.getElementById('contattami-btn'); // Pulsante "Contattami"
+    const contactFormContainer = document.getElementById('contact-form-container'); // Contenitore del form di contatto
   
-    // Soluzione per l'autoplay con audio
-    // Nota: questa è una soluzione che tenta di aggirare le restrizioni del browser
-    // utilizzando l'interazione dell'utente con la pagina
-    
-    // Imposta una funzione che tenta di attivare l'audio quando l'utente interagisce con la pagina
+    // Definisce una funzione per abilitare l'audio quando l'utente interagisce con la pagina
     function enableAudio() {
-        primoVideo.muted = false;
+        primoVideo.muted = false; // Riattiva l'audio del video
+        // Rimuove gli event listener per evitare che la funzione venga chiamata più volte
         document.removeEventListener('click', enableAudio);
         document.removeEventListener('touchstart', enableAudio);
         document.removeEventListener('keydown', enableAudio);
     }
     
-    // Aggiungi listener per vari tipi di interazione utente
-    document.addEventListener('click', enableAudio);
-    document.addEventListener('touchstart', enableAudio);
-    document.addEventListener('keydown', enableAudio);
+    // Aggiunge event listener per diversi tipi di interazione utente
+    document.addEventListener('click', enableAudio); // Attiva l'audio al click
+    document.addEventListener('touchstart', enableAudio); // Attiva l'audio al tocco (dispositivi mobili)
+    document.addEventListener('keydown', enableAudio); // Attiva l'audio alla pressione di un tasto
     
-    // Avvia il video muto (questo dovrebbe funzionare)
-    primoVideo.muted = true;
+    // Avvia il video in modalità muta (questa è l'unica modalità consentita automaticamente dai browser)
+    primoVideo.muted = true; // Imposta il video come muto
     primoVideo.play().catch(error => {
+      // Gestisce eventuali errori nell'avvio automatico del video
       console.warn("Autoplay bloccato:", error);
     });
   
-    // Timer per pulsante "Avanti"
+    // Aggiorna il testo del pulsante "Avanti" con il tempo rimanente del video
     primoVideo.addEventListener("timeupdate", function() {
+      // Calcola i secondi rimanenti e arrotonda per eccesso
       let remainingTime = Math.ceil(primoVideo.duration - primoVideo.currentTime);
+      // Aggiorna il testo del pulsante
       avantiBtn.innerText = `Avanti (${remainingTime}s)`;
     });
   
-    // Sblocca il pulsante dopo il primo video
+    // Attiva il pulsante "Avanti" quando il primo video termina
     primoVideo.addEventListener("ended", function() {
-      avantiBtn.classList.remove("disabled");
-      avantiBtn.classList.add("green");
-      avantiBtn.innerText = "Avanti";
+      avantiBtn.classList.remove("disabled"); // Rimuove la classe disabled per renderlo cliccabile
+      avantiBtn.classList.add("green"); // Aggiunge la classe green per cambiarne l'aspetto
+      avantiBtn.innerText = "Avanti"; // Rimuove il contatore e mostra solo "Avanti"
     });
   
-    // Corretto il problema del pulsante Avanti che non scompare
+    // Gestisce il click sul pulsante "Avanti"
     avantiBtn.addEventListener("click", function() {
-      document.querySelector(".video-container").classList.add("hidden");
-      // Aggiungiamo anche l'occultamento esplicito del pulsante
-      avantiBtn.style.display = "none"; // Utilizziamo style.display invece della classe
-      secondoVideoContainer.classList.remove("hidden");
-      secondoVideo.muted = false;
-      secondoVideo.play();
+      document.querySelector(".video-container").classList.add("hidden"); // Nasconde il primo video
+      avantiBtn.style.display = "none"; // Nasconde il pulsante "Avanti" impostando direttamente la proprietà display
+      secondoVideoContainer.classList.remove("hidden"); // Mostra il contenitore del secondo video
+      secondoVideo.muted = false; // Assicura che il secondo video non sia muto
+      secondoVideo.play(); // Avvia la riproduzione del secondo video
     });
   
-    // Mostra il pulsante "Contattami" dopo il secondo video
+    // Mostra il pulsante "Contattami" quando il secondo video termina
     secondoVideo.addEventListener("ended", function() {
-      contattamiBtn.classList.remove("hidden");
-      contattamiBtn.classList.add("show");
+      contattamiBtn.classList.remove("hidden"); // Rende visibile il pulsante
+      contattamiBtn.classList.add("show"); // Aggiunge la classe show per l'animazione
     });
   
+    // Mostra il form di contatto quando si clicca sul pulsante "Contattami"
     contattamiBtn.addEventListener("click", function() {
-      contactFormContainer.classList.remove("hidden");
+      contactFormContainer.classList.remove("hidden"); // Rende visibile il form
     });
-  });
+});
